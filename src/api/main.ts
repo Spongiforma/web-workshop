@@ -1,6 +1,9 @@
+import {BooruAPI} from "@/api/api";
 
 async function main(): Promise<string> {
-  return "name".repeat(50);
+  return new BooruAPI().popularPosts.then(it => {
+    return it[0] as unknown as string;
+  });
 }
 
 export default {
