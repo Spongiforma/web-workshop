@@ -5,12 +5,9 @@
         Settings
       </v-card-title>
       <div class="pa-8">
-        Welcome visitor from {{ country }}
-        <CountrySelect
-          :country.sync="country"/>
+        <label>Dark mode:</label>
         <v-switch
-          v-model="$vuetify.theme.dark"
-        />
+          v-model="$vuetify.theme.dark"/>
       </div>
     </v-card>
   </v-container>
@@ -22,7 +19,6 @@ import CountrySelect from "@/components/CountrySelect.vue";
 
 export default Vue.extend({
   name: "Main",
-  components: {CountrySelect},
   data: function () {
     return {
       name: "",

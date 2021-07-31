@@ -3,6 +3,7 @@
     <v-card class="card">
         <v-img class="center profile-img" max-width="200px" src="@/../public/assets/logo.png" ></v-img>
         <h3> Name: </h3> <p>{{ user.name }}</p>
+        <h3> Class: </h3> <p>{{ user.class }}</p>
     </v-card>
   </v-container>
 </template>
