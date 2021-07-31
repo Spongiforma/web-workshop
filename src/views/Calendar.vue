@@ -103,12 +103,18 @@
               <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
-            <v-card-subtitle>
-              <span v-text="colorsToNames[selectedEvent.color]"></span>
-            </v-card-subtitle>
-            <v-card-text>
-              <span v-html="selectedEvent.details"></span>
+            <v-card-text
+              class="popover">
+              <v-card-title :color="selectedEvent.color">
+              <h1>
+                <span v-text="colorsToNames[selectedEvent.color]"></span>
+              </h1>
+              </v-card-title>
+              <v-card-text>
+                <span v-html="selectedEvent.details"></span>
+              </v-card-text>
             </v-card-text>
+
           </v-card>
         </v-menu>
       </v-sheet>
@@ -216,6 +222,34 @@ export default Vue.extend({
           details: "Third Term Break of the Year! How's about that?",
           color: "orange"
         },
+        {
+          name: "Y4 School Leaders' Dialogue",
+          start: "2021-08-04 13:00",
+          end: "2021-08-04 14:00",
+          details: "I'm sorry I only know of this one",
+          color: "green"
+        },
+        {
+          name: "2021 University Modules Talk",
+          start: "2021-08-04 14:00",
+          end: "2021-08-04 14:20",
+          details: "Meet with Mr Ng on Teams, given you are taking University Modules in 2021.",
+          color: "blue"
+        },
+        {
+          name: "HMT O Level Oral Examination",
+          start: "2021-08-11",
+          end: "2021-08-13",
+          details: "Good Luck with that.",
+          color: "blue"
+        },
+        {
+          name: "HMT O Level Oral Examination",
+          start: "2021-08-16",
+          end: "2021-08-17",
+          details: "Good Luck with that.",
+          color: "blue"
+        },
 
       ],
       selectedEvent: {},
@@ -311,5 +345,9 @@ export default Vue.extend({
     margin-top: -5px;
     margin-left: -6.5px;
   }
+}
+
+.popover {
+  padding: 1rem;
 }
 </style>
