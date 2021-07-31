@@ -67,8 +67,8 @@
               <v-list-item @click="type = 'month'">
                 <v-list-item-title>Month</v-list-item-title>
               </v-list-item>
-              <v-list-item @click="type = '4day'">
-                <v-list-item-title>4 days</v-list-item-title>
+              <v-list-item @click="type = '5day'">
+                <v-list-item-title>5 Days</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -79,7 +79,7 @@
           v-model="focus"
           ref="calendar"
           color="primary"
-          type="week"
+          :type="type"
           @click:event="showEvent"
           :events="events"
         >
@@ -177,7 +177,13 @@ export default Vue.extend({
           start: "2021-03-13",
           end: "2021-03-21",
           details: "First Term Break of the Year! How's about that?"
-        }
+        },
+        {
+          "name": "National Day Holidays",
+          "start": "2021-08-09",
+          "end": "2021-08-10",
+          "details": "<p><strong>9<sup>th</sup> Aug 2021</strong></p>\n"
+        },
 
       ],
       selectedEvent: {},
@@ -185,12 +191,12 @@ export default Vue.extend({
       selectedOpen: false,
       value: "",
       ready: false,
-      type: "month",
+      type: "week",
       typeToLabel: {
         month: "Month",
         week: "Week",
         day: "Day",
-        "4day": "4 Days",
+        "5day": "5 Days",
       },
     };
   },
