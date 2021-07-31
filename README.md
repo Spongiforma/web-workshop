@@ -1,4 +1,4 @@
-# Vue 
+# Espacedition
 ## Project setup
 ```
 npm install
