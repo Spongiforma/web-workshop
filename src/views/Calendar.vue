@@ -250,6 +250,55 @@ export default Vue.extend({
           details: "Good Luck with that.",
           color: "blue"
         },
+        {
+          name: "CA Period",
+          start: "2021-08-11 08:00",
+          end: "2021-08-11 15:00",
+          details: "<p><strong>11<sup>th</sup> Aug 2021</strong></p>\n<p><strong>0800</strong> - <strong>1500</strong></p>\n<table>\n<thead>\n<tr>\n<th>Year</th>\n<th>Time</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Y1,Y2</td>\n<td>8am to 10am</td>\n</tr>\n<tr>\n<td>Y3,Y4</td>\n<td>10am to 1pm</td>\n</tr>\n<tr>\n<td>Y5,Y6</td>\n<td>12pm to 3pm</td>\n</tr>\n</tbody>\n</table>\n",
+          color: "blue"
+        },
+        {
+          name: "CA Period",
+          start: "2021-08-18 12:00",
+          end: "2021-08-11 16:30",
+          color: "blue",
+          details: "<p><strong>18<sup>th</sup> Aug 2021</strong></p>\n<p><strong>1200</strong> - <strong>1630</strong></p>\n<table>\n<thead>\n<tr>\n<th>Year</th>\n<th>Time</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Y1</td>\n<td>12pm to 4.30pm</td>\n</tr>\n<tr>\n<td>Y2,Y3</td>\n<td>12pm to 2.30pm</td>\n</tr>\n<tr>\n<td>Y5,Y6</td>\n<td>2pm to 4.30pm</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+          name: "Y4 CA Period",
+          start: "2021-08-25 14:00",
+          end: "2021-08-25 16:00",
+          color: "blue",
+          details: "<p><strong>25<sup>th</sup> Aug 2021</strong></p>\n<p><strong>1400</strong> - <strong>1800</strong></p>\n<table>\n<thead>\n<tr>\n<th>Year</th>\n<th>Time</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Y4</td>\n<td>2pm to 6pm</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+          name: "CA Period",
+          start: "2021-08-26 08:00",
+          end: "2021-08-26 16:00",
+          color: "blue",
+          details: "<p><strong>26<sup>th</sup> Aug 2021</strong></p>\n<p><strong>0800</strong> - <strong>1600</strong></p>\n<table>\n<thead>\n<tr>\n<th>Year</th>\n<th>Time</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Y1,Y5,Y6</td>\n<td>11.30am to 4pm</td>\n</tr>\n<tr>\n<td>Y2,Y3</td>\n<td>8am to 12pm</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+          name: "Y2-4 CA Period",
+          start: "2021-08-31 12:00",
+          end: "2021-08-31 16:00",
+          color: "blue",
+          details: "<p><strong>31<sup>st</sup> Aug 2021</strong></p>\n<p><strong>1200 - 1600</strong></p>\n<table>\n<thead>\n<tr>\n<th>Year</th>\n<th>Time</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Y2-Y4</td>\n<td>12pm to 4pm</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+          name: "Y5-6 CA Period",
+          start: "2021-08-31 08:00",
+          end: "2021-08-31 09:30",
+          color: "blue",
+          details: "<p><strong>31<sup>st</sup> Aug 2021</strong></p>\n<p><strong>0800 - 0930</strong></p>\n<table>\n<thead>\n<tr>\n<th>Year</th>\n<th>Time</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Y5,Y6</td>\n<td>8am to 9.30am</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+          name: "Colourfusion VI",
+          start: "2021-09-17 19:00",
+          end: "2021-09-17 21:00",
+          color: "green",
+          details: ""
+        },
 
       ],
       selectedEvent: {},
