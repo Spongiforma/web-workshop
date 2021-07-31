@@ -89,6 +89,16 @@ export default Vue.extend({
           route: "/calendar",
           icon: "mdi-cog",
         },
+        {
+          name: "Admin page",
+          route: "/admin",
+          icon: "mdi-cog",
+        },
+        {
+          name: "Profile page",
+          route: "/profile",
+          icon: "mdi-cog",
+        },
       ];
     },
   }

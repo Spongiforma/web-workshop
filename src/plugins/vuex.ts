@@ -11,6 +11,7 @@ const store = new Vuex.Store({
   mutations: {
     login (state,username) {
       state.loggedIn = true;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       state.user = {username: username};
     }
