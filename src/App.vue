@@ -6,10 +6,7 @@
 
       <v-list-item>
         <v-list-item-content>
-          <v-icon size="100">mdi-account</v-icon>
-          <v-list-item-title>
-            Welcome
-          </v-list-item-title>
+          <v-img src="@/../public/assets/logo.png" max-width="140px" class="logo-img mx-auto"></v-img>
         </v-list-item-content>
       </v-list-item>
 
@@ -45,7 +42,7 @@
       <v-app-bar-nav-icon
                           @click="drawerShown = !drawerShown"/>
       <v-toolbar-title>
-        Vue App
+        Espace
       </v-toolbar-title>
     </v-app-bar>
 
@@ -75,32 +72,38 @@ export default Vue.extend({
       // Add routes here to correspond to router.ts
       return [
         {
-          name: "Home page",
+          name: "Home",
           route: "/home",
-          icon: "mdi-file-table-box",
+          icon: "mdi-home",
         },
         {
-          name: "Settings page",
+          name: "Settings",
           route: "/settings",
           icon: "mdi-cog",
         },
         {
-          name: "Calendar page",
+          name: "Calendar",
           route: "/calendar",
-          icon: "mdi-cog",
+          icon: "mdi-calendar",
         },
         {
-          name: "Admin page",
+          name: "Admin",
           route: "/admin",
-          icon: "mdi-cog",
+          icon: "mdi-pencil",
         },
         {
-          name: "Profile page",
+          name: "Profile",
           route: "/profile",
-          icon: "mdi-cog",
+          icon: "mdi-account",
         },
       ];
     },
   }
 });
 </script>
+<style lang="scss">
+.logo-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>

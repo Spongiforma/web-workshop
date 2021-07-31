@@ -13,6 +13,13 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: "*",
+    redirect: "/home",
+    meta: {
+      reqAuth: true,
+    }
+  },
+  {
     path: "/home",
     component: Main,
     meta: {

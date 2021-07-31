@@ -101,20 +101,19 @@ export default Vue.extend({
       return fetch("/api/grades",{
         method: "GET"
       }).then(res=> res.json()).then(async res => {
-        this.modules = [];
+        const gradeModules = [];
         for (let r of res) {
           const tmp = await this.getModule(r.moduleID);
-          this.modules.push(tmp);
+          gradeModules.push(tmp);
         }
-        console.log(this.modules);
         const grades = [];
         for (let i =0; i<res.length; ++i) {
           grades.push({
             comment: res[i].comments,
             grade: res[i].grade,
-            moduleID: this.modules[i].code,
-            moduleName: this.modules[i].title,
-            MC: this.modules[i].MC,
+            moduleID: gradeModules[i].code,
+            moduleName: gradeModules[i].title,
+            MC: gradeModules[i].MC,
           });
         }
         return grades;
@@ -126,10 +125,14 @@ export default Vue.extend({
         // console.log(res);
         return res.find(e => e._id === moduleID);
       });
+    },
+    async getModules() {
+      return fetch("/api/modules").then(res=>res.json());
     }
   },
   async mounted() {
     this.grades = await this.getGrades();
+    this.modules = await this.getModules();
     // console.log(this.grades);
   },
 });

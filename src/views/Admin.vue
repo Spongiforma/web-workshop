@@ -12,6 +12,7 @@
          <v-menu v-for="student in students"
              v-model="menu[student._id]"
                  :key="student._id"
+                 offset-y
          :close-on-content-click="false">
 
            <template v-slot:activator="{on, attrs}">
@@ -19,11 +20,19 @@
                 class="student-cards"
                 outlined
                :key="student._id"
-            max-width="444">
+            min-width="284">
           <a
           v-on="on"
           v-bind="attrs">
           <v-list-item three-line>
+            <v-img class="avatar"
+                max-width="80"
+                v-if="student.profilePicture"
+                :src="student.profilePicture">
+            </v-img>
+            <v-img v-else class="avatar"
+                   max-width="80"
+                   src="@/../public/assets/default_avatar.svg"/>
             <v-list-item-content>
               <div class="text-overline mb-4">
                 {{ student.class }}
@@ -33,14 +42,7 @@
               </v-list-item-title>
 <!--              <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>-->
             </v-list-item-content>
-            <v-img
-                max-width="80"
-                v-if="student.profilePicture"
-                :src="student.profilePicture">
-            </v-img>
-            <v-img v-else
-            max-width="80"
-            src="@/../public/assets/logo.png"/>
+
           </v-list-item>
           </a>
         </v-card>
@@ -68,8 +70,65 @@
                </v-btn>
              </v-list>
            </v-card>
-
          </v-menu>
+        </div>
+      </v-card>
+
+
+      <v-card class="layout-card">
+        <h1 id="module-title">Modules</h1>
+        <v-menu v-model="addModuleMenu"
+                :close-on-content-click="false"
+        offset-x>
+          <template v-slot:activator="{on, attrs}">
+        <v-btn class="inline-block" id="module-add" v-on="on" v-bind="attrs">Add Module</v-btn>
+          </template>
+          <v-card class="popover"
+          width="400px">
+            <v-text-field
+              label="Code"
+            v-model="code"/>
+            <v-text-field
+                label="Title"
+            v-model="title"/>
+            <v-text-field
+                label="Teacher"
+            v-model="teacher"/>
+            <v-textarea
+                label="Description"
+            v-model="description"/>
+            <v-slider
+                label="MC"
+               hint="MC"
+                min="0"
+                max="12"
+                v-model="MC"
+            thumb-label="always">
+            </v-slider>
+            <v-btn @click="createModule()">Submit</v-btn>
+          </v-card>
+
+        </v-menu>
+
+
+        <div class="flex-container">
+        <v-card
+            v-for="module in modules"
+            class="module-cards"
+            outlined
+            :key="module._id"
+            width="400">
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="text-overline mb-4">
+                  {{ module.code }}
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  {{ module.title }}
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+        </v-card>
         </div>
       </v-card>
     </template>
@@ -87,6 +146,14 @@ export default Vue.extend({
       menu: {},
       studentPfps: {},
       studentLang: {},
+      modules: [],
+      overlay: false,
+      addModuleMenu: false,
+      teacher: "",
+      description: "",
+      MC: 0,
+      title: "",
+      code: "",
     };
   },
   methods: {
@@ -117,6 +184,27 @@ export default Vue.extend({
       this.menu[student._id] = false;
       return true;
     },
+    async getModules() {
+      return fetch("/api/modules").then(res => res.json()).then(res => {
+        return res;
+      });
+    },
+    createModule() {
+      fetch("/api/modules",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "code":this.code,
+          "title":this.title,
+          "teacher": this.teacher,
+          "MC":this.MC,
+          "description": this.description,
+        })
+      });
+      this.addModuleMenu = false;
+    }
   },
 
   async mounted() {
@@ -125,6 +213,7 @@ export default Vue.extend({
     if (res.length > 1) {  // but it does work
       this.restricted = false;
       this.students = res;
+      this.modules = await this.getModules();
       this.menu = {};
       this.studentLang = {};
       this.studentPfps = {};
@@ -152,8 +241,9 @@ export default Vue.extend({
 <style scoped lang="scss">
 .layout-card {
   padding: 4rem;
+  margin: 1rem;
 }
-.student-cards {
+.student-cards, .module-cards {
   margin: 1rem;
 }
 .flex-container {
@@ -161,6 +251,14 @@ export default Vue.extend({
 }
 .popover {
   padding: 1rem;
+}
+
+#module-add {
+  margin: 1rem;
+}
+
+.avatar {
+  margin-right: 1rem;
 }
 
 </style>
