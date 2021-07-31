@@ -257,7 +257,7 @@ export default Vue.extend({
       selectedOpen: false,
       value: "",
       ready: false,
-      type: "week",
+      type: "month",
       typeToLabel: {
         month: "Month",
         week: "Week",
