@@ -74,7 +74,7 @@ export default Vue.extend({
           const tmp = await this.getModule(r.moduleID);
           modules.push(tmp);
         }
-        console.log(modules);
+        // console.log(modules);
         const grades = [];
         for (let i =0; i<res.length; ++i) {
           grades.push({
@@ -97,7 +97,7 @@ export default Vue.extend({
   },
   async mounted() {
     this.grades = await this.getGrades();
-    console.log(this.grades);
+    // console.log(this.grades);
   },
 });
 </script>

@@ -1,8 +1,10 @@
 <template>
-
     <v-container>
-      <v-img src="/public/assets/logo.png" alt="logo">
+      <v-img src="@/../public/assets/logo.png" alt="logo" max-width="200px" class="logo-img">
       </v-img>
+      <h1>
+        Espace Login
+      </h1>
       <v-form
         ref="form"
         v-model="valid"
@@ -93,5 +95,10 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 
+.logo-img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+}
 
 </style>
