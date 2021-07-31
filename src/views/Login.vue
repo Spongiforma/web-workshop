@@ -45,26 +45,6 @@ export default Vue.extend({
     };
   },
   methods: {
-    submit() {
-      fetch("/auth/login",{
-        method: "POST" ,
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: this.name,
-          password: this.password,
-        })
-      }).then(res => {
-        if(res.status === 404){
-          this.$store.state.loggedIn = true;
-          router.push("home");
-        } else {
-          console.log("Unauthorized login");
-        }
-      });
-      return false;
-    },
     validate () {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -80,6 +60,7 @@ export default Vue.extend({
       }).then(res => {
         if(res.status === 404 || res.status === 200){
           this.$store.commit("login",this.name);
+          console.log(res);
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           this.$refs.form.validate();
