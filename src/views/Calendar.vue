@@ -58,17 +58,11 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item @click="type = 'day'">
-                <v-list-item-title>Day</v-list-item-title>
-              </v-list-item>
               <v-list-item @click="type = 'week'">
                 <v-list-item-title>Week</v-list-item-title>
               </v-list-item>
               <v-list-item @click="type = 'month'">
                 <v-list-item-title>Month</v-list-item-title>
-              </v-list-item>
-              <v-list-item @click="type = '5day'">
-                <v-list-item-title>5 Days</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -101,7 +95,6 @@
           <v-card
             color="grey lighten-4"
             min-width="350px"
-            flat
           >
             <v-toolbar
               :color="selectedEvent.color"
@@ -110,8 +103,10 @@
               <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
+            <v-card-subtitle>
+              <span v-text="colorsToNames[selectedEvent.color]"></span>
+            </v-card-subtitle>
             <v-card-text>
-              <span v-html="colorsToNames[selectedEvent.color]"></span>
               <span v-html="selectedEvent.details"></span>
             </v-card-text>
           </v-card>
@@ -169,10 +164,56 @@ export default Vue.extend({
           color: "orange"
         },
         {
+          "name": "National Day Celebration",
+          "start": "2021-08-06 08:00",
+          "end": "2021-08-06 12:00",
+          "details": "Celebrations start from 10.30 am.",
+          color: "deep-purple"
+        },
+        {
           "name": "National Day Holidays",
           "start": "2021-08-09",
           "end": "2021-08-10",
-          "details": "<p><strong>9<sup>th</sup> Aug 2021</strong></p>\n",
+          "details": "National Day Holidays to mug for exams after the holidays.",
+          color: "orange"
+        },
+        {
+          "name": "HBL Day",
+          "start": "2021-08-16",
+          "details": "Day 1 of HBL in the HBL Week",
+          color: "grey darken-1"
+        },
+        {
+          "name": "HBL Day",
+          "start": "2021-08-20",
+          "details": "Day 2 of HBL in the HBL Week",
+          color: "grey darken-1"
+        },
+        {
+          "name": "SDYC 2021",
+          "start": "2021-08-20",
+          "end": "2021-08-21",
+          "details": "<p><ul></p>\n<p><li><strong>20<sup>th</sup> Aug 2021</strong></li></p>\n<p><li><strong>21<sup>st</sup> Aug 2021</strong></li>\n</ul></p>\n<p>\nThe Sustainable Development Youth Conference or SDYC, is a branch of our school&#39;s humanities interest group. SDYC began in 2015 as a means for NUSH students to engage with humanities and politics and reflects our students&#39; passion in advocating sustainable development through critical analysis and sustainable methods. Organized by youths, for youths, participants engage themselves in a 3-day Model United Nations conference and enjoy the academic rigour of the discussions held. SDYC is open to all secondary and high school students across Singapore, allowing friendships and strong inter-school bonds to be formed.</p>\n",
+          color: "green"
+        },
+        {
+          "name": "StAR Day Celebration",
+          "start": "2021-09-02 08:00",
+          "end": "2021-09-02 12:00",
+          "details": "",
+          color: "deep-purple"
+        },
+        {
+          "name": "Teacher's Day Holiday",
+          "start": "2021-09-03",
+          "details": "",
+          color: "orange"
+        },
+        {
+          name: "September Holidays",
+          start: "2021-09-04",
+          end: "2021-09-12",
+          details: "Third Term Break of the Year! How's about that?",
           color: "orange"
         },
 
@@ -190,7 +231,7 @@ export default Vue.extend({
         "5day": "5 Days",
       },
       colors: ["blue", "deep-purple", "cyan", "green", "orange", "grey darken-1"],
-      names: ["Academic Events", "Holidays", "Exams", "Alternative Programs", "Holiday", "HBL"],
+      names: ["Academic Events", "Celebrations", "Exams", "Alternative Programs", "Holidays", "HBL"],
       colorsToNames: {}
     };
   },
@@ -213,9 +254,6 @@ export default Vue.extend({
 
   },
   methods: {
-    getEventColor (event) {
-      return event.color;
-    },
     setToday () {
       this.focus = "";
     },
