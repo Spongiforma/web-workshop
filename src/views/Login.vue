@@ -76,7 +76,7 @@ export default Vue.extend({
           password: this.password,
         })
       }).then(res => {
-        if(res.status === 404){
+        if(res.status === 404 || res.status === 200){
           this.$store.commit("login",this.name);
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore

@@ -75,13 +75,18 @@ export default Vue.extend({
       // Add routes here to correspond to router.ts
       return [
         {
-          name: "Main page",
-          route: "/",
+          name: "Home page",
+          route: "/home",
           icon: "mdi-file-table-box",
         },
         {
           name: "Settings page",
           route: "/settings",
+          icon: "mdi-cog",
+        },
+        {
+          name: "Calendar page",
+          route: "/calendar",
           icon: "mdi-cog",
         },
       ];

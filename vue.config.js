@@ -1,4 +1,7 @@
 module.exports = {
+  devServer: {
+    proxy: "https://espace.nush.app"
+  },
   lintOnSave: false,
   transpileDependencies: [
     "vuetify",

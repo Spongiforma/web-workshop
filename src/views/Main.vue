@@ -6,30 +6,21 @@
           Your profile
         </div>
         <div v-else>
-          Welcome
+          Grades
         </div>
         <v-spacer/>
       </v-card-title>
       <div class="pa-8">
-        <v-text-field
-          v-model="name"
-          label="Name"
-        >
-        </v-text-field>
         <v-data-table
-          :items="posts"
+          :items="grades"
           :headers="headers">
-          <template v-slot:item.file_url="{ item }">
-            <v-img class="post-image"
-            :src="item.file_url" :alt="item.id"/>
-          </template>
         </v-data-table>
       </div>
     </v-card>
   </v-container>
 </template>
 
-<script lang="ts">
+<script >
 import Vue from "vue";
 import api from "@/api/main";
 import {Post} from "@/types/Post";
@@ -38,14 +29,29 @@ import {DataTableHeader} from "vuetify";
 
 export default Vue.extend({
   name: "Main",
+
   data: function () {
     return {
       name: "",
       mainOut: "",
-      posts: [] as Post[],
-      headers: [{
-        text: "ID",
-        value: "id"
+      posts: [],
+      grades: [],
+      headers: [
+          {
+            text: "Module ID",
+            value: "moduleID"
+      },
+        {
+          text: "Module Name",
+          value: "moduleName"
+        },
+        {
+          text: "Grade",
+          value: "grade"
+        },
+        {
+        text: "comments",
+        value: "comment"
       }, {
         text: "Tags",
         value: "tag_string",
@@ -55,12 +61,43 @@ export default Vue.extend({
       },{
         text: "Name",
         value: "name",
-      },] as DataTableHeader[]
+      },]
     };
   },
+  methods: {
+    async getGrades() {
+      return fetch("/api/grades",{
+        method: "GET"
+      }).then(res=> res.json()).then(async res => {
+        const modules = [];
+        for (let r of res) {
+          const tmp = await this.getModule(r.moduleID);
+          modules.push(tmp);
+        }
+        console.log(modules);
+        const grades = [];
+        for (let i =0; i<res.length; ++i) {
+          grades.push({
+            comment: res[i].comments,
+            grade: res[i].grade,
+            moduleID: modules[i].code,
+            moduleName: modules[i].title,
+          });
+        }
+        return grades;
+      });
+    },
+
+    async getModule(moduleID) {
+      return fetch("/api/modules").then(res=>res.json()).then(res => {
+        // console.log(res);
+        return res.find(e => e._id === moduleID);
+      });
+    }
+  },
   async mounted() {
-    this.mainOut = await api.main();
-    this.posts = await new BooruAPI().popularPosts;
+    this.grades = await this.getGrades();
+    console.log(this.grades);
   },
 });
 </script>

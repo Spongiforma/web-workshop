@@ -4,12 +4,20 @@ import Main from "@/views/Main.vue";
 import Settings from "@/views/Settings.vue";
 import Login from "@/views/Login.vue";
 import store from "@/plugins/vuex";
+import {VCalendar} from "vuetify/lib/components";
+import Calendar from "@/views/Calendar.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
+    path: "*",
+    meta: {
+      reqAuth: true,
+    }
+  },
+  {
+    path: "/home",
     component: Main,
     meta: {
       reqAuth: true,
@@ -27,6 +35,13 @@ const routes: Array<RouteConfig> = [
     component: Login,
     meta: {
       reqAuth: false,
+    }
+  },
+  {
+    path: "/calendar",
+    component: Calendar,
+    meta: {
+      reqAuth: true,
     }
   }
 ];
