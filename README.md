@@ -1,5 +1,4 @@
-# Vue Web Workshop
-(Might contain questionable images though they are fetched from safebooru)
+# Vue 
 ## Project setup
 ```
 npm install
