@@ -88,7 +88,7 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 
 export default Vue.extend({
@@ -157,7 +157,7 @@ export default Vue.extend({
   },
   computed: {
     cal () {
-      return this.ready ? this.$refs.calendar as HTMLElement : null;
+      return this.ready ? this.$refs.calendar : null;
     },
     nowY () {
       return this.cal ? this.cal.timeToY(this.cal.times.now) + "px" : "-10px";
