@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      v-if="user != null"
       v-model="drawerShown"
       temporary app>
 
@@ -9,7 +8,7 @@
         <v-list-item-content>
           <v-icon size="100">mdi-account</v-icon>
           <v-list-item-title>
-            Welcome, {{ user.name }}!
+            Welcome
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -43,30 +42,29 @@
       color="primary"
       dark
     >
-      <v-app-bar-nav-icon v-if="user != null"
+      <v-app-bar-nav-icon
                           @click="drawerShown = !drawerShown"/>
       <v-toolbar-title>
-        Vishal's Vue App
+        Vue App
       </v-toolbar-title>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <router-view/>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import store from "@/plugins/vuex";
 
 export default Vue.extend({
   name: "App",
   components: {},
   data: () => ({
     drawerShown: false,
-    user: {
-      name: "Vishal",
-    }
+    store: store,
   }),
   computed: {
     routes(): Array<{

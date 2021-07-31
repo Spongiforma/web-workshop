@@ -2,11 +2,11 @@
   <v-container fluid>
     <v-card>
       <v-card-title class="text-wrap">
-        <div v-if="name === ''">
+        <div v-if="name">
           Your profile
         </div>
         <div v-else>
-          Welcome to Vue, {{ name }}
+          Welcome
         </div>
         <v-spacer/>
       </v-card-title>

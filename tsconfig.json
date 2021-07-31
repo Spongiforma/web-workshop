@@ -10,6 +10,8 @@
     "allowJs": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    bants
     "sourceMap": true,
     "baseUrl": ".",
     "types": [

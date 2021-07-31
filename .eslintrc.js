@@ -16,6 +16,7 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     quotes: ["error", "double", {allowTemplateLiterals: true}],
     semi: "error",
-    "vue/valid-v-slot": ["error",{"allowModifiers" : true}]
+    "vue/valid-v-slot": ["error",{"allowModifiers" : true}],
+    "@typescript-eslint/ban-ts-ignore": "off"
   },
 };
