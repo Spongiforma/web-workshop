@@ -25,12 +25,15 @@
               </v-list-item-title>
 <!--              <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>-->
             </v-list-item-content>
-            <v-list-item-avatar
-                tile
-                size="80"
-                color="grey"
-                datasrc="@/../public/assets/logo.png"
-            ></v-list-item-avatar>
+
+            <v-img
+                max-width="80"
+                v-if="student.profilePicture"
+                :src="student.profilePicture">
+            </v-img>
+            <v-img v-else
+            max-width="80"
+            src="@/../public/assets/logo.png"/>
           </v-list-item>
           </a>
         </v-card>
