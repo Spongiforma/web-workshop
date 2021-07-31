@@ -1,5 +1,9 @@
 <template>
   <v-container>
+    <template v-if="this.admin">
+        <h1>Restricted</h1>
+    </template>
+    <template v-else>
     <v-card class="card">
       <v-menu
       v-model="menu"
@@ -30,6 +34,7 @@
         <h3> Name: </h3> <p>{{ user.name }}</p>
         <h3> Class: </h3> <p>{{ user.class }}</p>
     </v-card>
+    </template>
   </v-container>
 </template>
 
@@ -43,12 +48,17 @@ export default Vue.extend({
       user: {},
       menu: false,
       imageLink: "",
-      src: "@/../public/assets/logo.png"
+      src: "@/../public/assets/logo.png",
+      admin: true,
     };
   },
   methods : {
     getUser() {
       return fetch("/api/student").then(res => res.json()).then(res => {
+        if(res.length > 0){
+          return "admin";
+        }
+        this.admin = false;
         return res[0];
       });
     },
@@ -69,6 +79,8 @@ export default Vue.extend({
   async mounted() {
     this.user = await this.getUser();
     console.log(this.user);
+
+
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

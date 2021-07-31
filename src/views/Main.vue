@@ -13,7 +13,21 @@
       <div class="pa-8">
         <v-data-table
           :items="grades"
-          :headers="headers">
+          :headers="headersGrades">
+        </v-data-table>
+      </div>
+    </v-card>
+    <v-card>
+      <v-card-title class="text-wrap">
+        <div>
+          Modules
+        </div>
+        <v-spacer/>
+      </v-card-title>
+      <div class="pa-8">
+        <v-data-table
+            :items="modules"
+            :headers="headersModules">
         </v-data-table>
       </div>
     </v-card>
@@ -36,7 +50,8 @@ export default Vue.extend({
       mainOut: "",
       posts: [],
       grades: [],
-      headers: [
+      modules: [],
+      headersGrades: [
           {
             text: "Module ID",
             value: "moduleID"
@@ -52,16 +67,33 @@ export default Vue.extend({
         {
         text: "comments",
         value: "comment"
-      }, {
-        text: "Tags",
-        value: "tag_string",
       },{
-        text: "Image",
-        value: "file_url",
-      },{
-        text: "Name",
-        value: "name",
-      },]
+        text: "MC",
+          value: "MC",
+        }
+      ],
+      headersModules: [
+        {
+          text: "Code",
+          value: "code",
+        },
+        {
+          text: "Module Name",
+          value: "title",
+        },
+        {
+          text: "Teacher",
+          value: "teacher",
+        },
+        {
+          text: "Description",
+          value: "description",
+        },
+        {
+          text: "MC",
+          value: "MC",
+        }
+      ]
     };
   },
   methods: {
@@ -69,19 +101,20 @@ export default Vue.extend({
       return fetch("/api/grades",{
         method: "GET"
       }).then(res=> res.json()).then(async res => {
-        const modules = [];
+        this.modules = [];
         for (let r of res) {
           const tmp = await this.getModule(r.moduleID);
-          modules.push(tmp);
+          this.modules.push(tmp);
         }
-        // console.log(modules);
+        console.log(this.modules);
         const grades = [];
         for (let i =0; i<res.length; ++i) {
           grades.push({
             comment: res[i].comments,
             grade: res[i].grade,
-            moduleID: modules[i].code,
-            moduleName: modules[i].title,
+            moduleID: this.modules[i].code,
+            moduleName: this.modules[i].title,
+            MC: this.modules[i].MC,
           });
         }
         return grades;
