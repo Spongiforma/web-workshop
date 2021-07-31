@@ -112,23 +112,46 @@
 
 
         <div class="flex-container">
-        <v-card
-            v-for="module in modules"
-            class="module-cards"
-            outlined
-            :key="module._id"
-            width="400">
-            <v-list-item three-line>
-              <v-list-item-content>
-                <div class="text-overline mb-4">
-                  {{ module.code }}
-                </div>
-                <v-list-item-title class="text-h5 mb-1">
-                  {{ module.title }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-        </v-card>
+
+          <v-menu
+              v-for="module in modules"
+              :key="module._id"
+          :close-on-content-click="false"
+          offset-y>
+            <template v-slot:activator="{on, attrs}">
+              <v-card
+                  class="module-cards"
+                  outlined
+                  :key="module._id"
+                  width="400">
+                <a v-on="on" v-bind="attrs">
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <div class="text-overline mb-4">
+                      {{ module.code }}
+                    </div>
+                    <v-list-item-title class="text-h5 mb-1">
+                      {{ module.title }}
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                </a>
+              </v-card>
+            </template>
+
+            <v-card class="popover">
+              <v-autocomplete
+                v-model="enrolledStudents[module._id]"
+                :items="students"
+                multiple
+                item-text="name"
+                item-value="_id"
+                @change="updateEnrollment(module._id)"
+              >
+              </v-autocomplete>
+
+            </v-card>
+          </v-menu>
         </div>
       </v-card>
     </template>
@@ -154,6 +177,8 @@ export default Vue.extend({
       MC: 0,
       title: "",
       code: "",
+      enrolledStudents: {},
+      isEditing: false,
     };
   },
   methods: {
@@ -190,7 +215,7 @@ export default Vue.extend({
       });
     },
     createModule() {
-      fetch("/api/modules",{
+      fetch("/api/modules/module",{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -204,8 +229,29 @@ export default Vue.extend({
         })
       });
       this.addModuleMenu = false;
+    },
+    getStudent(studentID: string) {
+      return this.students.find((s: any) => s._id === studentID);
+    },
+    updateEnrollment(moduleID: string) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      fetch(`/api/modules/${moduleID}`,{
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          "enrolledStudents": this.enrolledStudents[moduleID]
+        })
+      }).then(res => {
+        console.log(res);
+      });
     }
   },
+
 
   async mounted() {
     const res = await this.getStudents();
@@ -217,6 +263,7 @@ export default Vue.extend({
       this.menu = {};
       this.studentLang = {};
       this.studentPfps = {};
+      this.enrolledStudents = {};
       for (let s of this.students) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -230,6 +277,12 @@ export default Vue.extend({
         // @ts-ignore
         this.studentPfps[s._id]  = s.profilePicture;
       }
+      for (let m of this.modules) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        this.enrolledStudents[m._id] = m.enrolledStudents.map(id => this.getStudent(id));
+      }
+      console.log(this.enrolledStudents);
     } else {
 
     }
@@ -237,7 +290,6 @@ export default Vue.extend({
 
 });
 </script>
-
 <style scoped lang="scss">
 .layout-card {
   padding: 4rem;
