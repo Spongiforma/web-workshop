@@ -299,6 +299,96 @@ export default Vue.extend({
           color: "green",
           details: ""
         },
+        {
+          name: "NUSH HACK 2021",
+          start: "2021-08-27 19:00",
+          end: "2021-08-28 20:00",
+          color: "blue",
+          details: "A team-based competition with 1 to 3 participants per team, Hackathon 2021 will be held from 27 August 7.00 pm to 28 August 8.00 pm. The judges will decide on and release the theme of the competition during the administrative briefing at the start of the hackathon. An example of the theme is “software that alleviates the COVID-19 crisis”. Participants will have to create a software based on the theme and submit their source code, along with instructions to run them, by 28 August 4.00pm, together with a video and PowerPoint slides for judging. Hackathon teams will be allocated a presentation and online judging slot between 4pm to 7pm via Microsoft Teams. The final winners of NUSH HACK 2021 will be unveiled at the prize presentation in mid-September (T4W1)."
+        },
+        {
+          name: "SMO Junior 2021",
+          start: "2021-09-06 09:30",
+          end: "2021-09-06 12:00",
+          color: "blue",
+          details: "<p><strong>2<sup>nd</sup> Jun 2021</strong></p>\n<p><strong>0900</strong> - <strong>1300</strong></p>\n<h2 id=\"objective\">Objective</h2>\n<p>The objective of the Singapore Mathematical Olympiad 2021 (SMO 2021) (Junior Section) (hereafter called the “Competition”) organized by the Singapore Mathematical Society (hereafter called “SMS”) is to test the ingenuity and mathematical problem-solving ability of the participants, and to discover and encourage mathematical talents in secondary schools in Singapore.</p>\n<h2 id=\"eligibility\">Eligibility</h2>\n<p>The Junior Round Competition is open to all full time Express Course students who were born on or after 2 January 2007 and full time Normal(Academic)/(Technical) Course students who were born on or after 2 January 2006, and who have never attended any tertiary level educational institution on a full time basis.</p>\n<h2 id=\"format\">Format</h2>\n<p>Round 1 of the Competition will be a two-and-a-half hour written paper consisting of multiple choice and short questions. All questions will carry equal weight. The language of the Competition will be English.</p>\n<h2 id=\"topics\">Topics</h2>\n<p>The topics covered by the questions would normally be within the curriculum of Secondary One and Two mathematics education for the Express Course (or equivalently up to Secondary Three Normal (Academic) Course). There will be a significant number of questions based on school mathematics syllabus.</p>\n"
+        },
+        {
+          name: "SMO Senior 2021",
+          start: "2021-09-06 09:30",
+          end: "2021-09-06 12:00",
+          color: "blue",
+          details: "<p><strong>2<sup>nd</sup> Jun 2021</strong></p>\n<p><strong>0900</strong> - <strong>1300</strong></p>\n<h2 id=\"objective\">Objective</h2>\n<p>The objective of the Singapore Mathematical Olympiad 2021 (SMO 2021) (Senior Section) (hereafter called the “Competition”) organized by the Singapore Mathematical Society (hereafter called “SMS”) is to test the ingenuity and mathematical problem-solving ability of the participants, and to discover and encourage mathematical talents in secondary schools in Singapore.</p>\n<h2 id=\"eligibility\">Eligibility</h2>\n<p>The Competition is open to all full time Express Course students who were born on or after 2 January 2005 and full time Normal(Academic)/(Technical) Course students who were born on or after 2 January 2004, and who have never attended any tertiary level educational institution on a full time basis.</p>\n<h2 id=\"format\">Format</h2>\n<p>Round 1 of the Competition will be a two-and-a-half hour written paper consisting of multiple choice and short questions. All questions will carry equal weight. The language of the Competition will be English.</p>\n<h2 id=\"topics\">Topics</h2>\n<p>The topics covered by the questions would normally be within the curriculum of Secondary One and Two mathematics education for the Express Course (or equivalently up to Secondary Three Normal (Academic) Course). There will be a significant number of questions based on school mathematics syllabus.</p>\n"
+        },
+        {
+          name: "SMO Open 2021",
+          start: "2021-09-07 09:30",
+          end: "2021-09-07 12:00",
+          color: "blue",
+          details: "<p><strong>3<sup>rd</sup> Jun 2021</strong></p>\n<p><strong>0900</strong> - <strong>1300</strong></p>\n<h2 id=\"objective\">Objective</h2>\n<p>The objective of the Singapore Mathematical Olympiad 2021 (SMO 2021) (Open Section) (hereafter called the “Competition”) organized by the Singapore Mathematical Society (hereafter called “SMS”) is to test the ingenuity and mathematical problem-solving ability of the participants, and to discover and encourage mathematical talents in secondary schools in Singapore.</p>\n<h2 id=\"eligibility\">Eligibility</h2>\n<p>The Competition is open to all full time students who have never attended any tertiary level educational institution on a full time basis.</p>\n<h2 id=\"format\">Format</h2>\n<p>Round 1 of the Competition will be a two-and-a-half hour written paper consisting of short questions. All questions will carry equal weight. The language of the Competition will be English.</p>\n<h2 id=\"topics\">Topics</h2>\n<p>The topics covered by the questions would normally be within the curriculum of a pre-university education. There will be significant number of questions based on school mathematics syllabus.</p>\n"
+        },
+        {
+          name: "Y1-Y5 Reading Day",
+          start: "2021-10-20",
+          color: "blue",
+        },
+        {
+          name: "'A' Level MT Yr End Exam",
+          start: "2021-10-25",
+          color: "cyan",
+          details: "<p><strong>25<sup>th</sup> Oct 2021</strong></p>\n"
+        },
+        {
+          name: "'O' Level MT Yr End Exam",
+          start: "2021-11-02",
+          color: "cyan",
+          details: "<p><strong>2<sup>nd</sup> Nov 2021</strong></p>\n"
+        },
+        {
+          name: "Deepavali Holiday",
+          start: "2021-11-04",
+          color: "orange",
+          details: "<p><strong>4<sup>th</sup> Nov 2021</strong></p>\n"
+        },
+        {
+          name: "Deepavali Celebration",
+          start: "2021-11-08",
+          color: "deep-purple",
+          details: "<p><strong>8<sup>th</sup> Nov 2021</strong></p>\n"
+        },
+        {
+          name: "Research Development Experience Programme (RDEP) 1",
+          start: "2021-11-18",
+          end: "2021-11-29",
+          color: "blue",
+          details: "RDEP is a specially curated 8- day programme held at Science Centre Singapore. The aim of the programme is to enable students to gain hands-on experience in experimentation, design, prototyping and data-analysis. Students will work in small groups of 2-3 to complete a small-scale Science or Engineering project. Students will also have a chance to showcase their projects in our youth project showcase to be held on 18th March 2022."
+        },
+        {
+          name: "Research Development Experience Programme (RDEP) 2",
+          start: "2021-12-02",
+          end: "2021-12-13",
+          color: "blue",
+          details: "RDEP is a specially curated 8- day programme held at Science Centre Singapore. The aim of the programme is to enable students to gain hands-on experience in experimentation, design, prototyping and data-analysis. Students will work in small groups of 2-3 to complete a small-scale Science or Engineering project. Students will also have a chance to showcase their projects in our youth project showcase to be held on 18th March 2022."
+        },
+        {
+          name: "December Holidays",
+          start: "2021-11-20",
+          end: "2022-01-02",
+          color: "orange",
+          details: "The last term break of the year!"
+        },
+        {
+          name: "Convocation 2021",
+          start: "2021-11-17",
+          color: "green",
+          details: "Graduation for the Y6s!"
+        },
+        {
+          name: "IRC-SET 2021",
+          start: "2021-08-07",
+          color: "blue",
+          details: "International Researchers Club (IRC) was set up in Singapore in 2001 (www.irc.org.sg). As an established society, IRC’s vision is to create a vibrant and innovative research community for Singapore. IRC organizes the IRC Conference on Science, Engineering and Technology (IRC-SET), an annual event, to provide a platform for young and talented researchers to share fresh results, obtain comments, and exchange innovative ideas of leading-edge research in the multi-disciplinary areas. You are cordially invited to submit your recent research work to the IRC-SET conference. Students from universities, polytechnics and junior colleges are warmly welcome to present your research and projects in our academic environment. The IRC-SET Conference is free to IRC members."
+        },
 
       ],
       selectedEvent: {},
