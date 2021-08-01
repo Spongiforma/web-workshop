@@ -389,6 +389,75 @@ export default Vue.extend({
           color: "blue",
           details: "International Researchers Club (IRC) was set up in Singapore in 2001 (www.irc.org.sg). As an established society, IRC’s vision is to create a vibrant and innovative research community for Singapore. IRC organizes the IRC Conference on Science, Engineering and Technology (IRC-SET), an annual event, to provide a platform for young and talented researchers to share fresh results, obtain comments, and exchange innovative ideas of leading-edge research in the multi-disciplinary areas. You are cordially invited to submit your recent research work to the IRC-SET conference. Students from universities, polytechnics and junior colleges are warmly welcome to present your research and projects in our academic environment. The IRC-SET Conference is free to IRC members."
         },
+        {
+          name: "Cyber Wellness Week",
+          start: "2021-07-12",
+          end: "2021-07-16",
+          color: "green",
+          details: "Cyber Wellness Week 2021 - T3W3"
+        },
+        {
+          name: "Mr Clifton Koh's Address to Senior High",
+          start: "2021-08-18 13:00",
+          end: "2021-08-18 14:00",
+          details: "Coming soon.",
+          color: "green"
+        },
+        {
+          name: "House Meet (B Div)",
+          start: "2021-08-23 13:00",
+          end: "2021-08-23 14:00",
+          details: "SMM still applies.",
+          color: "green"
+        },
+        {
+          name: "Building BloCS 2021 June Conference",
+          start: "2021-06-02",
+          end: "2021-06-04",
+          details: "BuildingBloCS’s annual flagship conference will be happening from 2nd to 4th June. The conference is held in tandem with CTE-STEM 2021 Conference. Hence, the theme for the conference is “Computational Thinking & AI Education”.\n\nOn the first two days of the conference, participants will be engaged in a series of activities ranging from keynote speeches by ex-computing students and industry professionals from Google, AI Singapore, etc. to workshops focusing on applications of AI. On the third day of the conference, BuildingBloCS is organising a AI Winpetition where students will form their own teams and be given various themes to choose from. The teams would then need to maximise their creative thinking and computational skills to come up with an innovative application of AI relating to the theme. Finally, various teams will be awarded titles, theme prizes and even some special awards!",
+          color: "blue"
+        },
+        {
+          name: "CodeCombat 2021",
+          start: "2021-06-01",
+          details: "CodeCombat is an educational video game for students to learn through type coding. Various programming concepts and languages are explored such as the fundamentals of computer science, JavaScript, Python, HTML and CoffeeScript. Overall, CodeCombat has 11 units - three game development units, two web development units, and six computer science units.\n\nHeld on 1st June, with a workshop on the 30th of May, the tournament will have several rounds as described below:",
+          color: "blue"
+        },
+        {
+          name: "AppVenture Workshop - Machine Learning with Neural Networks",
+          start: "2021-06-07 14:00",
+          end: "2021-06-07 16:00",
+          color: "blue"
+        },
+        {
+          name: "AppVenture Workshop - Scientific Computing using Python",
+          start: "2021-05-31 14:00",
+          end: "2021-05-31 16:00",
+          color: "blue"
+        },
+        {
+          name: "GYSTB 2021",
+          start: "2021-06-19",
+          end: "2021-06-20",
+          color: "blue"
+        },
+        {
+          name: "Math Seminar 2021",
+          start: "2021-07-21 15:00",
+          end: "2021-07-21 17:30",
+          color: "blue"
+        },
+        {
+          name: "CS1010S Placement Test",
+          start: "2021-07-08 14:00",
+          end: "2021-07-08 16:00",
+          color: "blue"
+        },
+        {
+          name: "PTM",
+          start: "2021-07-07",
+          color: "green"
+        },
 
       ],
       selectedEvent: {},
